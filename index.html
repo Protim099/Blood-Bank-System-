@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blood Bank Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+  <!-- Sign in -->
+  <main id="login" class="login" hidden>
+    <form id="login-form" class="login-card" autocomplete="on">
+      <div class="drop" aria-hidden="true"></div>
+      <h1>Blood Bank</h1>
+      <p class="muted">Sign in to manage donors, stock and requests.</p>
+      <label>Username <input name="username" value="admin" required autocomplete="username"></label>
+      <label>Password <input name="password" type="password" required autocomplete="current-password"></label>
+      <p id="login-error" class="error" role="alert"></p>
+      <button class="btn primary" type="submit">Sign in</button>
+    </form>
+  </main>
+
+  <!-- App -->
+  <div id="app" class="shell" hidden>
+    <aside class="side">
+      <div class="brand"><span class="drop small" aria-hidden="true"></span> Blood Bank</div>
+      <nav id="nav">
+        <a href="#dashboard" data-view="dashboard">Dashboard</a>
+        <a href="#donors" data-view="donors">Donors</a>
+        <a href="#stock" data-view="stock">Stock</a>
+        <a href="#requests" data-view="requests">Requests</a>
+      </nav>
+      <div class="side-foot">
+        <span id="who" class="muted"></span>
+        <button class="link" id="pw-btn">Change password</button>
+        <button class="link" id="logout-btn">Sign out</button>
+      </div>
+    </aside>
+    <main id="view" class="content" tabindex="-1"></main>
+  </div>
+
+  <dialog id="dlg"><form method="dialog" id="dlg-form"></form></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
